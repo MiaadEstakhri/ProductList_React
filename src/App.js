@@ -1,11 +1,6 @@
 import { Component } from "react";
-import HookCounter from "./components/HookCounter";
-import ClassHook from "./components/ClassHook";
-import ObjectHook from "./components/ObjectHook";
-import ArrayHook from "./components/ArrayHook";
 import ProductList from "./components/ProductsList/ProductList";
 import styles from "./app.module.css";
-import react from "react";
 import NavBar from "./components/NavBar/NavBar";
 
 class App extends Component {
@@ -77,9 +72,6 @@ class App extends Component {
           onDecrement={this.decrementHandler}
           onChange={this.changeHandler}
         />
-        <button onClick={() => this.countHandler(2)}>
-          count : {this.state.count}
-        </button>
       </div>
     );
   }
@@ -87,13 +79,3 @@ class App extends Component {
 
 export default App;
 
-// const App = () => {
-//   return (
-//     <div className="container">
-//       {/* <HookCounter /> */}
-//       {/* <ClassHook /> */}
-//       {/* <ObjectHook /> */}
-//       <ArrayHook />
-//     </div>
-//   );
-// };
