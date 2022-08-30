@@ -2,14 +2,6 @@ import React, { Component } from "react";
 import Product from "../Products/Products";
 
 class ProductList extends Component {
-  state = {
-    products: [
-      { title: "react", price: "89$", id: 1, quantity: 1 },
-      { title: "next", price: "79$", id: 2, quantity: 1 },
-      { title: "js", price: "69$", id: 3, quantity: 1 },
-    ],
-  };
-
   renderProduct = () => {
     const { onChange, onDecrement, onIncrement, onDelete, products } =
       this.props;
@@ -20,7 +12,6 @@ class ProductList extends Component {
         <Product
           product={product}
           key={product.id}
-          // click={()=>this.clickHandler("hello")}
           onIncrement={() => onIncrement(product.id)}
           onDecrement={() => onDecrement(product.id)}
           onDelete={() => onDelete(product.id)}

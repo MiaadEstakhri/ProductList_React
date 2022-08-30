@@ -6,25 +6,10 @@ import NavBar from "./components/NavBar/NavBar";
 class App extends Component {
   state = {
     products: [
-      { title: "react", price: "89$", id: 1, quantity: 1 },
-      { title: "next", price: "79$", id: 2, quantity: 1 },
-      { title: "js", price: "69$", id: 3, quantity: 1 },
+      { title: "React.js", price: "89$", id: 1, quantity: 1 },
+      { title: "Node.js", price: "79$", id: 2, quantity: 1 },
+      { title: "JavaScript", price: "69$", id: 3, quantity: 1 },
     ],
-    count: 0,
-  };
-  clickHandler = (n) => {
-    // this.setState({
-    //   products: [
-    //     { title: "react", price: "59$", id: 1 },
-    //     { title: "next", price: "49$", id: 2 },
-    //     { title: n, price: "39$", id: 3 },
-    //   ],
-    // });
-  };
-
-  countHandler = (id) => {
-    console.log("c", id);
-    this.setState({ count: this.state.count + 1 });
   };
 
   removeHandler = (id) => {
@@ -78,4 +63,3 @@ class App extends Component {
 }
 
 export default App;
-
