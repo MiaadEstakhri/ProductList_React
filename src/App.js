@@ -4,6 +4,11 @@ import styles from "./app.module.css";
 import NavBar from "./components/NavBar/NavBar";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    console.log("app.js constructor");
+  }
+
   state = {
     products: [
       { title: "React.js", price: "89$", id: 1, quantity: 1 },
@@ -18,32 +23,48 @@ class App extends Component {
   };
 
   incrementHandler = (id) => {
+    const index = this.state.products.findIndex((item) => item.id === id);
+    console.log(index);
+    const product = { ...this.state.products[index] };
+    product.quantity++;
+
     const products = [...this.state.products];
-    const selectedItem = products.find((p) => p.id === id);
-    selectedItem.quantity++;
+    products[index] = product;
     this.setState({ products });
   };
 
   decrementHandler = (id) => {
-    const products = [...this.state.products];
-    const selectedItem = products.find((p) => p.id === id);
-    if (selectedItem.quantity === 1) {
-      const filterProducts = products.filter((p) => p.id !== id);
-      this.setState({ products: filterProducts });
+    const index = this.state.products.findIndex((item) => item.id === id);
+    const product = { ...this.state.products[index] };
+    if (product.quantity === 1) {
+      const filteredProducts = this.state.products.filter((p) => p.id !== id);
+      this.setState({ products: filteredProducts });
     } else {
-      selectedItem.quantity--;
+      const products = [...this.state.products];
+      product.quantity--;
+      products[index] = product;
       this.setState({ products });
     }
   };
 
   changeHandler = (event, id) => {
+    const index = this.state.products.findIndex((item) => item.id === id);
+    console.log(index);
+    const product = { ...this.state.products[index] };
+    product.title = event.target.value;
+
     const products = [...this.state.products];
-    const selectedItem = products.find((p) => p.id === id);
-    selectedItem.title = event.target.value;
+    products[index] = product;
     this.setState({ products });
   };
 
+  componentDidUpdate(prevProps, prevState) {
+    console.log("App.js componentDidUpdate");
+    console.log("App.js", prevState);
+  }
+
   render() {
+    console.log("app.js render");
     return (
       <div className={styles.app}>
         <h1>App shopping</h1>
