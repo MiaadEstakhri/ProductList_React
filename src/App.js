@@ -1,7 +1,8 @@
 import { Component } from "react";
 import ProductList from "./components/ProductsList/ProductList";
-import styles from "./app.module.css";
+import "./App.css";
 import NavBar from "./components/NavBar/NavBar";
+import Wrapper from "./components/HOC/wrapper";
 
 class App extends Component {
   constructor(props) {
@@ -66,7 +67,7 @@ class App extends Component {
   render() {
     console.log("app.js render");
     return (
-      <div className={styles.app}>
+      <>
         <h1>App shopping</h1>
         <NavBar
           totalItems={this.state.products.filter((p) => p.quantity > 0).length}
@@ -78,9 +79,9 @@ class App extends Component {
           onDecrement={this.decrementHandler}
           onChange={this.changeHandler}
         />
-      </div>
+      </>
     );
   }
 }
 
-export default App;
+export default Wrapper(App, "container");
