@@ -43,6 +43,7 @@
     padding: .8rem 1.5rem;
     border-radius: 8px;
     border: 1px solid #d946ef;
+    text-overflow:inherit;
 
 }
 
@@ -54,4 +55,8 @@
 .remove{
     border: 2px solid #f87171;
     color: #f87171;
+}
+
+.name{
+    overflow: hidden;
 }

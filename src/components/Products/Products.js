@@ -10,7 +10,7 @@ const Product = ({
 }) => {
   return (
     <div className={styles.product} onClick={click}>
-      <p>product name:{product.title} course</p>
+      <p className={styles.name}>product name:{product.title} course</p>
       <p>product price:{product.price}</p>
       <span className={styles.value}>{product.quantity}</span>
       <input
