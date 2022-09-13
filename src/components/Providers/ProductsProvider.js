@@ -1,13 +1,15 @@
-import React, { useContext, useReducer, useState } from "react";
+import React, { useContext, useReducer } from "react";
+import { productsData } from "../../db/productsData";
+import _ from "lodash";
 
 const ProductContext = React.createContext();
 const ProductContextDispatcher = React.createContext();
 
-const initialState = [
-  { title: "React.js", price: "89$", id: 1, quantity: 1 },
-  { title: "Node.js", price: "79$", id: 2, quantity: 1 },
-  { title: "JavaScript", price: "69$", id: 3, quantity: 1 },
-];
+// const initialState = [
+//   { title: "React.js", price: "89$", id: 1, quantity: 1 },
+//   { title: "Node.js", price: "79$", id: 2, quantity: 1 },
+//   { title: "JavaScript", price: "69$", id: 3, quantity: 1 },
+// ];
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -44,13 +46,34 @@ const reducer = (state, action) => {
       const filterRemove = state.filter((p) => p.id !== action.id);
       return filterRemove;
 
+    case "filter": {
+      const value = action.selectedOptions.value;
+      if (value === "") {
+        return productsData;
+      } else {
+        const productUpdated = productsData.filter(
+          (p) => p.availableSizes.indexOf(value) >= 0
+        );
+        return productUpdated;
+      }
+    }
+    case "sort": {
+      const value = action.selectedOptions.value;
+      const products = [...state];
+      if (value === "lowest") {
+        return _.orderBy(products, ["price"], ["asc"]);
+      } else {
+        return _.orderBy(products, ["price"], ["desc"]);
+      }
+    }
+
     default:
       return state;
   }
 };
 
 const ProductsProvider = ({ children }) => {
-  const [products, dispatch] = useReducer(reducer, initialState);
+  const [products, dispatch] = useReducer(reducer, productsData);
 
   return (
     <ProductContext.Provider value={products}>
