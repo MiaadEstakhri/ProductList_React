@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import Select from "react-select";
-import style from "./filter.module.css";
+import styles from "./filter.module.css";
 import { useProductsActions } from "../Providers/ProductsProvider";
+import SelectComponent from "../../common/Select/SelectComponent";
+import SearchBar from "../../common/SearchBar/SearchBar";
 
-const options = [
+const filterOptions = [
   { value: "", label: "All" },
   { value: "XS", label: "XS" },
   { value: "S", label: "S" },
@@ -20,13 +21,13 @@ const sortOptions = [
 
 const Filter = () => {
   const dispatch = useProductsActions();
-  const [value, setValue] = useState("");
+  const [filter, setFilter] = useState("");
   const [sort, setSort] = useState("");
 
   const filterHandler = (selectedOptions) => {
     dispatch({ type: "filter", selectedOptions });
-    dispatch({ type: "sort", selectedOptions:sort });
-    setValue(selectedOptions);
+    dispatch({ type: "sort", selectedOptions: sort });
+    setFilter(selectedOptions);
   };
 
   const sortHandler = (selectedOptions) => {
@@ -35,27 +36,24 @@ const Filter = () => {
   };
 
   return (
-    <div className={style.filter}>
-      <p>filter products based on:</p>
-      <div className={style.selectedContainer}>
-        <span>order by</span>
-        <Select
-          value={value}
+    <section>
+      <SearchBar filter={filter} />
+      <div className={styles.filter}>
+        <p>filter products based on:</p>
+        <SelectComponent
+          title="filter size by:"
+          value={filter}
           onChange={filterHandler}
-          options={options}
-          className={style.select}
+          options={filterOptions}
         />
-      </div>
-      <div className={style.selectedContainer}>
-        <span>sort by</span>
-        <Select
+        <SelectComponent
+          title="sort by:"
           value={sort}
           onChange={sortHandler}
           options={sortOptions}
-          className={style.select}
         />
       </div>
-    </div>
+    </section>
   );
 };
 

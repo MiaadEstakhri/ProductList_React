@@ -1,0 +1,16 @@
+.selectedContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.selectedContainer span {
+  display: block;
+  margin-right: 1rem;
+}
+
+.select {
+  width: 20rem;
+  color: #d946ef;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}

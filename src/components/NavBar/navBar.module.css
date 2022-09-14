@@ -9,21 +9,21 @@
   align-items: center;
 }
 
-.navBar h2{
-    font-size: 2.8rem;
-    color: #131212d6;
+.navBar h2 {
+  font-size: 2.8rem;
+  color: #131212d6;
 }
 
-.navBar span{
-    margin-left: 10px;
-    width: 28px;
-    height: 28px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    background-color: #08080830;
-    color: #d946ef;
-    font-size: 20px;
-    font-weight: bold;
+.navBar span {
+  margin-left: 10px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #08080830;
+  color: #d946ef;
+  font-size: 20px;
+  font-weight: bold;
 }

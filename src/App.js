@@ -13,7 +13,7 @@ const App = () => {
       <ProductsProvider>
         <h1>App shopping</h1>
         <NavBar />
-        <Filter/>
+        <Filter />
         <ProductList />
       </ProductsProvider>
     </>

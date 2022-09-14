@@ -1,23 +1,6 @@
-.filter{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 70vw;
-
-}
-
-.selectedContainer{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.selectedContainer span{
-    display: block;
-    margin-right: 1rem;
-}
-
-.select{
-    width: 20rem;
-    color: #d946ef;
+.filter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 70vw;
 }
