@@ -11,7 +11,7 @@
   padding: 0.8rem 1rem;
   border-radius: 8px;
   border: 1px solid #d946ef;
-  width: 30rem;
+  width: 15rem;
   margin-left: 1rem;
   box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
 }
@@ -23,4 +23,10 @@
 .formContainer span {
   font-size: 2rem;
   font-weight: bold;
+}
+
+@media screen and (min-width: 768px) {
+  .formContainer input {
+    width: 30rem;
+  }
 }

@@ -5,8 +5,10 @@ const SelectComponent = ({ title, ...rest }) => {
   console.log(rest);
   return (
     <div className={styles.selectedContainer}>
-      <span>{title}</span>
-      <Select {...rest} className={styles.select} />
+      <div className={styles.selected}>
+        <span>{title}</span>
+        <Select {...rest} className={styles.select} />
+      </div>
     </div>
   );
 };

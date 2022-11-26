@@ -11,32 +11,28 @@ const Product = ({
 }) => {
   return (
     <div className={styles.product} onClick={click}>
-      <p className={styles.name}>product name:{product.title} course</p>
-      <p>product price:{product.price}</p>
-      <span className={styles.value}>{product.quantity}</span>
-      {/* <input
-        type="text"
-        className={styles.input}
-        onChange={onChange}
-        value={product.title}
-      /> */}
-      <button
-        className={`${styles.button} ${
-          product.quantity === 1 && styles.remove
-        }`}
-        onClick={onDecrement}
-      >
-        {product.quantity > 1 ? "-" : <BiTrash />}
-      </button>
-      <button
-        className={`${styles.button} ${styles.inc}`}
-        onClick={onIncrement}
-      >
-        +
-      </button>
-      <button className={styles.button} onClick={onDelete}>
-        delete
-      </button>
+      <p className={styles.name}>product name : {product.title} course</p>
+      <p className={styles.price}>product price : {product.price} $</p>
+      <div className={styles.wrapperBtn}>
+        <span className={styles.value}>{product.quantity}</span>
+        <button
+          className={`${styles.button} ${
+            product.quantity === 1 && styles.remove
+          }`}
+          onClick={onDecrement}
+        >
+          {product.quantity > 1 ? "-" : <BiTrash />}
+        </button>
+        <button
+          className={`${styles.button} ${styles.inc}`}
+          onClick={onIncrement}
+        >
+          +
+        </button>
+        <button className={styles.button} onClick={onDelete}>
+          delete
+        </button>
+      </div>
     </div>
   );
 };

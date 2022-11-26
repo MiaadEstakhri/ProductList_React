@@ -3,14 +3,36 @@
   align-items: center;
   justify-content: center;
 }
+.selected {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
 
 .selectedContainer span {
   display: block;
-  margin-right: 1rem;
+  margin-bottom: 5px;
+  font-size: 1.5rem;
 }
 
 .select {
-  width: 20rem;
+  width: 12rem;
+  font-size: 1.5rem;
   color: #d946ef;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+@media screen and (min-width: 1024px) {
+  .selected {
+    flex-direction: row;
+    align-items: center;
+    margin-left: 1rem;
+  }
+  .select {
+    width: 15rem;
+  }
+  .selectedContainer span {
+    margin: 0 8px;
+    font-size: 2rem;
+  }
 }

@@ -1,6 +1,29 @@
 .filter {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  width: 70vw;
+  justify-content: center;
+  width: 100%;
+}
+
+.selectContainer {
+  display: flex;
+}
+
+.title {
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+@media screen and (min-width: 1025px) {
+  .filter {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 70vw;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
 }
